@@ -9,12 +9,23 @@
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 
-\addtolength{\evensidemargin}{-.5in}
-\addtolength{\oddsidemargin}{-.5in}
-\addtolength{\textwidth}{0.8in}
-\addtolength{\textheight}{0.8in}
-\addtolength{\topmargin}{-.4in}
+% allows for addition of pdf files to your document
+\usepackage{pdfpages}
+% adds text files
+\usepackage{fancyvrb}
 
+
+% adjust margins
+\usepackage{geometry}
+\geometry{hmargin=1in,vmargin=1in}
+
+
+% change appearance of left quotation marks
+\usepackage [english]{babel}
+\usepackage [autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+
+% Question format
 \newtheoremstyle{quest}{\topsep}{\topsep}{}{}{\bfseries}{}{ }{\thmname{#1}\thmnote{ #3}.}
 \theoremstyle{quest}
 \newtheorem*{question}{Problem}
@@ -45,7 +56,8 @@ September 20, 2015
  }
  
 
-\title{\vspace{-50pt}
+% Main title
+\title{\vspace{-30pt}
 \huge \course
 \\\vspace{10pt}
 \Large Problem Set \hw
@@ -63,10 +75,13 @@ September 20, 2015
 %%  Begin document
 \begin{document}
 
+% add main title
 \maketitle
+
+% add name and ID to front page
 \begin{picture}(0,0)
-\put(-20,180){
-\textbf{Name: \name} \hspace{6cm} 
+\put(-20,175){
+\textbf{Name: \name} \hspace{7.5cm} 
 \textbf{Student ID: \id}  
 }
 \end{picture}
@@ -148,6 +163,17 @@ The solution to Problem 3 goes here.
 
 
 % =============================================================
+
+%% Add PDF and text files to end of document
+\newpage
+
+
+% PDF files
+\includepdf[pages={1-1}]{example.pdf}
+
+% text files
+\VerbatimInput[baselinestretch=1, fontsize=\footnotesize,numbers=left]{example.txt}
+
 
 
 \end{document}
